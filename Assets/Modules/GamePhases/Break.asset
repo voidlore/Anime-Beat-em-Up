@@ -15,4 +15,5 @@ MonoBehaviour:
   duration: 30
   flySpeed: 15
   flySpeedVariance: 3
+  flySpawnRate: 2
   numberOfFlies: 0

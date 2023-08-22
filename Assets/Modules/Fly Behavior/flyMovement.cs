@@ -6,7 +6,8 @@ using UnityEditor.Rendering;
 using UnityEngine;
 
 public class flyMovement : MonoBehaviour
-    {
+{
+    public float health = 100;
     public Transform    goal, target;
     private Vector3     randomPoint;
     private Vector3 storedPoint;
