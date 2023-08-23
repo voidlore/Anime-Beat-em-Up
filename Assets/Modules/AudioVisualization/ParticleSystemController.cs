@@ -5,19 +5,19 @@ using UnityEngine;
 [RequireComponent(typeof(ParticleSystem))]
 public class ParticleSystemController : MonoBehaviour
 {
-    public Percentage emissionRate;
-    private ParticleSystem particleSystem;
+    public float emissionRate;
+    private ParticleSystem pSystem;
     private ParticleSystem.EmissionModule emissionModule;
 
     private void Start()
     {
-        if (particleSystem == null)
-            particleSystem = GetComponent<ParticleSystem>();
-        emissionModule = particleSystem.emission;
+        if (pSystem == null)
+            pSystem = GetComponent<ParticleSystem>();
+        emissionModule = pSystem.emission;
     }
 
     private void Update()
     {
-        emissionModule.rateOverTime = emissionRate.percentage;
+        emissionModule.rateOverTime = emissionRate;
     }
 }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class AudioIntervalAnalyzer : MonoBehaviour
 {
-    public Percentage outputPercentage;
+    public float outputPercentage;
     public AudioAnalyzer audioAnalyzer;
     public float intervalStartHz = 200f;
     public float intervalEndHz = 800f;
@@ -21,7 +21,7 @@ public class AudioIntervalAnalyzer : MonoBehaviour
     {
         // Calculate the average amplitude within the interval
         float temp = CalculateAverageAmplitude(audioAnalyzer.audioSpectrum, startIndex, endIndex);
-        outputPercentage.percentage =  temp * temp * temp * scalingFactor;
+        outputPercentage =  temp * temp * temp * scalingFactor;
     }
 
     private int FrequencyToSpectrumIndex(float frequencyHz)

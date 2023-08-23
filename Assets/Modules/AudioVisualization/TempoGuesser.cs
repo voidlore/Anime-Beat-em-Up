@@ -40,7 +40,7 @@ public class TempoGuesser : MonoBehaviour
 
     private void Update()
     {
-        float currentAmplitude = audioIntervalAnalyzer.outputPercentage.percentage;
+        float currentAmplitude = audioIntervalAnalyzer.outputPercentage;
 
         // Check if the current amplitude has exceeded the threshold
         if (currentAmplitude > threshold)
