@@ -15,6 +15,7 @@ public class handPoseDetector : MonoBehaviour
 
     private void Start()
     {
+        Debug.Log("Code starts");
         audioPlayer = GetComponent<AudioSource>();
         StartCoroutine(CoroutineUpdate());
     }
@@ -26,18 +27,20 @@ public class handPoseDetector : MonoBehaviour
         // Calculate the angle between the two transforms
         Vector3 directionToTarget = targetTransLeft.position - targetTransformRight.position;
         float angleToTarget = Vector3.Angle(targetTransformRight.forward, directionToTarget);
-
         // Check if the angle is within the specified threshold
         isWithinAngle = Mathf.Abs(Quaternion.Dot(targetTransformRight.rotation, targetTransLeft.rotation)) >= .85f;
         if (isWithinAngle && !kamehamehaBeam.activeSelf)
         {
             isWithinAngle = Vector3.Distance(targetTransLeft.position, targetTransformRight.position) < 3f;
+            Debug.Log(isWithinAngle);
             if (isWithinAngle)
             {
                 audioPlayer.clip = audioClips[0];
                 audioPlayer.loop = true;
+                Debug.Log("here");
                 if (!audioPlayer.isPlaying)
                 {
+                    Debug.Log("made it");
                     audioPlayer.Play();
                 }
                 //play charging sound effect
@@ -53,10 +56,7 @@ public class handPoseDetector : MonoBehaviour
                 StartCoroutine(kamehameha());
             }
         }
-        else
-        {
-            StartCoroutine(CoroutineUpdate());
-        }
+        StartCoroutine(CoroutineUpdate());
     }
 
 

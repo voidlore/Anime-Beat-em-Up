@@ -29,7 +29,7 @@ public class FlySpawnerManager : MonoBehaviour
         yield return new WaitForSeconds(currentPhase.flySpawnRate);
         if(flies.Count < currentPhase.numberOfFlies && creatureManager.activeCreatures != null && creatureManager.activeCreatures.Count > 0)
         {
-            Debug.Log("Spawning a Fly");
+            //Debug.Log("Spawning a Fly");
             SpawnFly();
         }
         StartCoroutine(ManageSpawn());
