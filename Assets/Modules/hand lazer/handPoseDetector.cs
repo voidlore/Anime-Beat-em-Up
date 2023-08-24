@@ -1,8 +1,8 @@
-using Oculus.Interaction;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class MatchRotation : MonoBehaviour
+public class handPoseDetector : MonoBehaviour
 {
     public Transform targetTransLeft, targetTransformRight;        // The target transform to compare angles with
     public GameObject kamehamehaBeam;
@@ -32,11 +32,11 @@ public class MatchRotation : MonoBehaviour
         if (isWithinAngle && !kamehamehaBeam.activeSelf)
         {
             isWithinAngle = Vector3.Distance(targetTransLeft.position, targetTransformRight.position) < 3f;
-            if(isWithinAngle && charge == 0)
+            if (isWithinAngle)
             {
                 audioPlayer.clip = audioClips[0];
                 audioPlayer.loop = true;
-                if(!audioPlayer.isPlaying)
+                if (!audioPlayer.isPlaying)
                 {
                     audioPlayer.Play();
                 }
@@ -46,15 +46,17 @@ public class MatchRotation : MonoBehaviour
         }
         //Debug.Log(isWithinAngle);
 
-        if(!isWithinAngle && charge > 0f)
+        if (!isWithinAngle && charge > 0f)
         {
-            if(Vector3.Distance(targetTransLeft.position, targetTransformRight.position) < 1f)
+            if (Vector3.Distance(targetTransLeft.position, targetTransformRight.position) < 1f)
             {
                 StartCoroutine(kamehameha());
             }
         }
-
-        StartCoroutine(CoroutineUpdate());
+        else
+        {
+            StartCoroutine(CoroutineUpdate());
+        }
     }
 
 
@@ -73,6 +75,6 @@ public class MatchRotation : MonoBehaviour
         audioPlayer.Stop();
         charge = 0f;
         //destroy beam
-
     }
 }
+

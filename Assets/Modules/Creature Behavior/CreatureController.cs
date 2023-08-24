@@ -4,5 +4,30 @@ using UnityEngine;
 
 public class CreatureController : MonoBehaviour
 {
-    public float health = 100;
+    public float health, tickRate, moveForce = 5.0f, wanderRadius = 5.0f, duckHeight = 1.5f;
+    
+    private Vector3 randomPoint;
+    private Rigidbody rb;
+    public SpawnPointManager spawnPointManager;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+        StartCoroutine(Wander());
+    }
+
+    private void Update()
+    {
+        if (randomPoint == null)
+            return;
+        Vector3 direction = ((randomPoint) - transform.position).normalized;
+        rb.AddForce(direction * moveForce * Time.deltaTime * (moveForce - rb.velocity.magnitude));
+    }
+    public IEnumerator Wander()
+    {
+        Vector2 tempvector = Random.insideUnitCircle;
+        randomPoint = (new Vector3(tempvector.x, 0, tempvector.y) * wanderRadius);
+        yield return new WaitForSeconds(tickRate);
+        StartCoroutine(Wander());
+    }
 }

@@ -10,7 +10,7 @@ public class FlySpawnerManager : MonoBehaviour
     public List<flyMovement> flies;
     public GameObject flyPrefab;
     public SpawnPointManager spawnPointManager;
-    public List<CreatureController> creatures;
+    public CreatureManager creatureManager;
 
     private void Start()
     {
@@ -27,7 +27,7 @@ public class FlySpawnerManager : MonoBehaviour
     public IEnumerator ManageSpawn()
     {
         yield return new WaitForSeconds(currentPhase.flySpawnRate);
-        if(flies.Count < currentPhase.numberOfFlies)
+        if(flies.Count < currentPhase.numberOfFlies && creatureManager.activeCreatures != null && creatureManager.activeCreatures.Count > 0)
         {
             Debug.Log("Spawning a Fly");
             SpawnFly();
@@ -44,12 +44,12 @@ public class FlySpawnerManager : MonoBehaviour
 
     public CreatureController GetStrongestCreature()
     {
-        CreatureController result = creatures[0];
-        for(int i = 0; i < creatures.Count; i++)
+        CreatureController result = creatureManager.activeCreatures[0];
+        for(int i = 0; i < creatureManager.activeCreatures.Count; i++)
         {
-            if (creatures[i].health > result.health)
+            if (creatureManager.activeCreatures[i].health > result.health)
             {
-                result = creatures[i];
+                result = creatureManager.activeCreatures[i];
             }
         }
         return result;
