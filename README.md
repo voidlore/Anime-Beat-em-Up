@@ -1,8 +1,7 @@
-# Awesome Project
+# Anime Beat'em Up
 
-Welcome to the Awesome Project! This project aims to do something amazing and revolutionary.
+Anime Beat'em up.
 
-![Project Banner](images/banner.png)
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/yourusername/awesome-project.svg)](https://github.com/yourusername/awesome-project/stargazers)
