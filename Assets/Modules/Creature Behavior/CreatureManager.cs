@@ -10,6 +10,7 @@ public class CreatureManager : MonoBehaviour
     public List<CreatureController> activeCreatures;
     public List<GameObject> creaturePrefabs;
     public SpawnPointManager spawnPointManager, creatureWanderPoints;
+    public Transform creatureTargetRotation;
 
     private void Start()
     {
@@ -38,6 +39,7 @@ public class CreatureManager : MonoBehaviour
         newCreature.spawnPointManager = creatureWanderPoints;
         newCreature.moveForce = 30.0f;
         newCreature.tickRate = 20.0f;
+        newCreature.GetComponent<RigidBodyMatchRotation>().target = creatureTargetRotation;
         newCreature.GetComponent<Rigidbody>().AddForce(Vector3.up * 1000);
     }
 }

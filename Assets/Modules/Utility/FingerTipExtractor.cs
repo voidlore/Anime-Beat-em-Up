@@ -16,4 +16,9 @@ public class FingerTipExtractor : MonoBehaviour
     {
         return handVisual.GetTransformByHandJointId(Oculus.Interaction.Input.HandJointId.HandThumbTip).transform.position;
     }
+
+    public Quaternion GetPointerRotation()
+    {
+        return handVisual.GetTransformByHandJointId(Oculus.Interaction.Input.HandJointId.HandIndexTip).transform.rotation;
+    }
 }
