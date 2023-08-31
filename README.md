@@ -1,23 +1,8 @@
 # Anime Beat'em Up
 
-Anime Beat'em up.
-
-
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![GitHub stars](https://img.shields.io/github/stars/yourusername/awesome-project.svg)](https://github.com/yourusername/awesome-project/stargazers)
-[![GitHub issues](https://img.shields.io/github/issues/yourusername/awesome-project.svg)](https://github.com/yourusername/awesome-project/issues)
-[![GitHub pull requests](https://img.shields.io/github/issues-pr/yourusername/awesome-project.svg)](https://github.com/yourusername/awesome-project/pulls)
-[![GitHub last commit](https://img.shields.io/github/last-commit/yourusername/awesome-project.svg)](https://github.com/yourusername/awesome-project/commits)
-
+Blast ghosts with hand symbols and poses in this fast paced, round-based anime-styled beat'em up game.
 ## Features
 
-- Incredible feature 1
-- Mind-blowing feature 2
-- Super cool feature 3
-
-## Installation
-
-```bash
-git clone https://github.com/yourusername/awesome-project.git
-cd awesome-project
-npm install
+- Game phases allow players to wrack up points
+- Soft body simulations of ghosts for LOLs
+- Anime styled aesthetic shaders
